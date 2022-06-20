@@ -63,7 +63,7 @@ object PokemonDetailsMapper {
 
         types.sortedBy { it.order }
             .forEach { type ->
-                when (type.description.name.lowercase(Locale.getDefault())) {
+                val pokemonType = when (type.description.name.lowercase(Locale.getDefault())) {
                     "bug" -> PokemonTypes.BUG
                     "electric" -> PokemonTypes.ELECTRIC
                     "fire" -> PokemonTypes.FIRE
@@ -77,6 +77,8 @@ object PokemonDetailsMapper {
                     "water" -> PokemonTypes.WATER
                     else -> throw UnsupportedOperationException("TYPE NOT MAPPED: ${type.description}")
                 }
+
+                pokemonTypes.add(pokemonType)
             }
 
         return pokemonTypes

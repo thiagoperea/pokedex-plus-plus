@@ -1,10 +1,13 @@
 package com.thiagoperea.pokedexplusplus.presentation.details
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
+import com.thiagoperea.pokedexplusplus.data.model.PokemonStat
 import com.thiagoperea.pokedexplusplus.data.model.PokemonStats
+import com.thiagoperea.pokedexplusplus.data.model.PokemonTypes
 import com.thiagoperea.pokedexplusplus.databinding.ActivityDetailsBinding
 import org.koin.android.ext.android.inject
 
@@ -26,6 +29,8 @@ class DetailsActivity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.pokemonDetailsLiveData.observe(this) { details ->
             loadDetails(details)
+            loadStats(details.stats)
+            loadTypes(details.types)
         }
     }
 
@@ -37,8 +42,10 @@ class DetailsActivity : AppCompatActivity() {
         binding.pokeHeight.text = "${pokemon.height} m"
         binding.pokeMoves.text = pokemon.moves.toString()
         binding.pokeDescription.text = pokemon.description
+    }
 
-        pokemon.stats.forEach {
+    private fun loadStats(stats: List<PokemonStat>) {
+        stats.forEach {
             when (it.stat) {
                 PokemonStats.HP -> {
                     binding.pokeStatsValueHp.text = it.value.toString()
@@ -65,6 +72,14 @@ class DetailsActivity : AppCompatActivity() {
                     binding.pokeStatsProgressSpd.progress = it.value
                 }
             }
+        }
+    }
+
+    private fun loadTypes(types: List<PokemonTypes>) {
+        types.forEach {
+            val textView = TextView(this)
+            textView.text = it.name
+            binding.pokeTypes.addView(textView)
         }
     }
 
