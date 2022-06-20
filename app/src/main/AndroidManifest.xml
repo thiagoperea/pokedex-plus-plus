@@ -17,6 +17,10 @@
         android:theme="@style/Theme.Pokedex"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
         <activity
             android:name=".presentation.details.DetailsActivity"
             android:exported="true">

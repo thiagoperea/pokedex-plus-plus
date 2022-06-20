@@ -19,7 +19,7 @@ class DetailsViewModel(
         viewModelScope.launch {
 
             val bulbasaur = withContext(Dispatchers.IO) {
-                repository.loadPokemonWithId(150)
+                repository.loadPokemonWithId(6)
             }
 
             pokemonDetailsLiveData.postValue(bulbasaur)

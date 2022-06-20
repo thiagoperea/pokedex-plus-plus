@@ -86,27 +86,27 @@ class DetailsActivity : AppCompatActivity() {
         stats.forEach {
             when (it.stat) {
                 PokemonStats.HP -> {
-                    binding.pokeStatsValueHp.text = it.value.toString().padStart(3, '0')
+                    binding.pokeStatsValueHp.text = it.value.toString()
                     binding.pokeStatsProgressHp.progress = it.value
                 }
                 PokemonStats.ATK -> {
-                    binding.pokeStatsValueAtk.text = it.value.toString().padStart(3, '0')
+                    binding.pokeStatsValueAtk.text = it.value.toString()
                     binding.pokeStatsProgressAtk.progress = it.value
                 }
                 PokemonStats.DEF -> {
-                    binding.pokeStatsValueDef.text = it.value.toString().padStart(3, '0')
+                    binding.pokeStatsValueDef.text = it.value.toString()
                     binding.pokeStatsProgressDef.progress = it.value
                 }
                 PokemonStats.SATK -> {
-                    binding.pokeStatsValueSatk.text = it.value.toString().padStart(3, '0')
+                    binding.pokeStatsValueSatk.text = it.value.toString()
                     binding.pokeStatsProgressSatk.progress = it.value
                 }
                 PokemonStats.SDEF -> {
-                    binding.pokeStatsValueSdef.text = it.value.toString().padStart(3, '0')
+                    binding.pokeStatsValueSdef.text = it.value.toString()
                     binding.pokeStatsProgressSdef.progress = it.value
                 }
                 PokemonStats.SPD -> {
-                    binding.pokeStatsValueSpd.text = it.value.toString().padStart(3, '0')
+                    binding.pokeStatsValueSpd.text = it.value.toString()
                     binding.pokeStatsProgressSpd.progress = it.value
                 }
             }
