@@ -1,485 +1,491 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="#74CB48">
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/pokeball"
-        android:layout_width="208dp"
-        android:layout_height="208dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_pokeball" />
-
-    <View
-        android:id="@+id/content_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokeball" />
-
-    <ImageView
-        android:id="@+id/poke_img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/poke_name"
-        app:srcCompat="@android:color/holo_orange_light" />
-
-    <ImageView
-        android:id="@+id/back_button"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back_arrow" />
-
-    <TextView
-        android:id="@+id/poke_name"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/back_button"
-        app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintTop_toTopOf="@id/back_button"
-        tools:text="Bulbassaur" />
+        android:background="#74CB48">
 
-    <TextView
-        android:id="@+id/poke_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/back_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/back_button"
-        tools:text="#001" />
+        <ImageView
+            android:id="@+id/pokeball"
+            android:layout_width="208dp"
+            android:layout_height="208dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_pokeball" />
 
-    <LinearLayout
-        android:id="@+id/poke_types"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toStartOf="@id/content_layout"
-        app:layout_constraintTop_toBottomOf="@id/poke_img" />
+        <View
+            android:id="@+id/content_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_rounded"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokeball" />
 
-    <TextView
-        android:id="@+id/poke_about"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="About"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/poke_types" />
+        <ImageView
+            android:id="@+id/poke_img"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/poke_name"
+            app:srcCompat="@android:color/holo_orange_light" />
 
-    <!-- weight section -->
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_arrow" />
 
-    <ImageView
-        android:id="@+id/icon_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@id/poke_weight"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@id/content_layout"
-        app:layout_constraintTop_toBottomOf="@id/poke_about"
-        app:srcCompat="@drawable/ic_weight" />
+        <TextView
+            android:id="@+id/poke_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/back_button"
+            app:layout_constraintStart_toEndOf="@id/back_button"
+            app:layout_constraintTop_toTopOf="@id/back_button"
+            tools:text="Bulbassaur" />
 
-    <TextView
-        android:id="@+id/poke_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/icon_weight"
-        app:layout_constraintEnd_toStartOf="@id/weight_divider"
-        app:layout_constraintStart_toEndOf="@id/icon_weight"
-        app:layout_constraintTop_toTopOf="@id/icon_weight"
-        tools:text="3 kg" />
+        <TextView
+            android:id="@+id/poke_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/back_button"
+            tools:text="#001" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="weight"
-        app:layout_constraintBottom_toBottomOf="@id/weight_divider"
-        app:layout_constraintEnd_toEndOf="@id/poke_weight"
-        app:layout_constraintStart_toStartOf="@id/icon_weight" />
+        <LinearLayout
+            android:id="@+id/poke_types"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toStartOf="@id/content_layout"
+            app:layout_constraintTop_toBottomOf="@id/poke_img" />
 
-    <View
-        android:id="@+id/weight_divider"
-        android:layout_width="1dp"
-        android:layout_height="56dp"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/icon_height"
-        app:layout_constraintStart_toEndOf="@id/poke_weight"
-        app:layout_constraintTop_toBottomOf="@id/poke_about" />
+        <TextView
+            android:id="@+id/poke_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="About"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/poke_types" />
 
-    <!-- height section -->
+        <!-- weight section -->
 
+        <ImageView
+            android:id="@+id/icon_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toStartOf="@id/poke_weight"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/content_layout"
+            app:layout_constraintTop_toBottomOf="@id/poke_about"
+            app:srcCompat="@drawable/ic_weight" />
 
-    <ImageView
-        android:id="@+id/icon_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@id/poke_height"
-        app:layout_constraintStart_toEndOf="@id/weight_divider"
-        app:layout_constraintTop_toBottomOf="@id/poke_about"
-        app:srcCompat="@drawable/ic_height" />
+        <TextView
+            android:id="@+id/poke_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/icon_weight"
+            app:layout_constraintEnd_toStartOf="@id/weight_divider"
+            app:layout_constraintStart_toEndOf="@id/icon_weight"
+            app:layout_constraintTop_toTopOf="@id/icon_weight"
+            tools:text="3 kg" />
 
-    <TextView
-        android:id="@+id/poke_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/icon_weight"
-        app:layout_constraintEnd_toStartOf="@id/height_divider"
-        app:layout_constraintStart_toEndOf="@id/icon_height"
-        app:layout_constraintTop_toTopOf="@id/icon_weight"
-        tools:text="0,9 m" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="weight"
+            app:layout_constraintBottom_toBottomOf="@id/weight_divider"
+            app:layout_constraintEnd_toEndOf="@id/poke_weight"
+            app:layout_constraintStart_toStartOf="@id/icon_weight" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="height"
-        app:layout_constraintBottom_toBottomOf="@id/weight_divider"
-        app:layout_constraintEnd_toEndOf="@id/poke_height"
-        app:layout_constraintStart_toStartOf="@id/icon_height" />
+        <View
+            android:id="@+id/weight_divider"
+            android:layout_width="1dp"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/icon_height"
+            app:layout_constraintStart_toEndOf="@id/poke_weight"
+            app:layout_constraintTop_toBottomOf="@id/poke_about" />
 
-    <View
-        android:id="@+id/height_divider"
-        android:layout_width="1dp"
-        android:layout_height="56dp"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/poke_moves"
-        app:layout_constraintStart_toEndOf="@id/poke_height"
-        app:layout_constraintTop_toBottomOf="@id/poke_about" />
-
-    <!-- moves section -->
-
-    <TextView
-        android:id="@+id/poke_moves"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/icon_weight"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toEndOf="@id/height_divider"
-        app:layout_constraintTop_toTopOf="@id/icon_weight"
-        tools:text="ATACK1\nATACK2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="moves"
-        app:layout_constraintBottom_toBottomOf="@id/weight_divider"
-        app:layout_constraintEnd_toEndOf="@id/poke_moves"
-        app:layout_constraintStart_toStartOf="@id/poke_moves" />
-
-    <!-- lower sections -->
-
-    <TextView
-        android:id="@+id/poke_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toStartOf="@id/content_layout"
-        app:layout_constraintTop_toBottomOf="@id/weight_divider"
-        tools:text="There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger." />
+        <!-- height section -->
 
 
-    <TextView
-        android:id="@+id/poke_stats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Base Stats"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/poke_description" />
+        <ImageView
+            android:id="@+id/icon_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toStartOf="@id/poke_height"
+            app:layout_constraintStart_toEndOf="@id/weight_divider"
+            app:layout_constraintTop_toBottomOf="@id/poke_about"
+            app:srcCompat="@drawable/ic_height" />
 
-    <View
-        android:id="@+id/poke_stats_divider"
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_spd"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_desc_satk"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_hp" />
+        <TextView
+            android:id="@+id/poke_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/icon_weight"
+            app:layout_constraintEnd_toStartOf="@id/height_divider"
+            app:layout_constraintStart_toEndOf="@id/icon_height"
+            app:layout_constraintTop_toTopOf="@id/icon_weight"
+            tools:text="0,9 m" />
 
-    <!-- HP -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="height"
+            app:layout_constraintBottom_toBottomOf="@id/weight_divider"
+            app:layout_constraintEnd_toEndOf="@id/poke_height"
+            app:layout_constraintStart_toStartOf="@id/icon_height" />
 
-    <TextView
-        android:id="@+id/poke_stats_desc_hp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="end"
-        android:text="HP"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toBottomOf="@id/poke_stats" />
+        <View
+            android:id="@+id/height_divider"
+            android:layout_width="1dp"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/poke_moves"
+            app:layout_constraintStart_toEndOf="@id/poke_height"
+            app:layout_constraintTop_toBottomOf="@id/poke_about" />
 
-    <TextView
-        android:id="@+id/poke_stats_value_hp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:gravity="end"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_hp"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_hp"
-        tools:text="040" />
+        <!-- moves section -->
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/poke_stats_progress_hp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_hp"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_value_hp"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_hp"
-        app:trackCornerRadius="8dp"
-        tools:progress="40" />
+        <TextView
+            android:id="@+id/poke_moves"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/icon_weight"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toEndOf="@id/height_divider"
+            app:layout_constraintTop_toTopOf="@id/icon_weight"
+            tools:text="ATACK1\nATACK2" />
 
-    <!-- ATK -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="moves"
+            app:layout_constraintBottom_toBottomOf="@id/weight_divider"
+            app:layout_constraintEnd_toEndOf="@id/poke_moves"
+            app:layout_constraintStart_toStartOf="@id/poke_moves" />
 
-    <TextView
-        android:id="@+id/poke_stats_desc_atk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:gravity="end"
-        android:text="ATK"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_hp" />
+        <!-- lower sections -->
 
-    <TextView
-        android:id="@+id/poke_stats_value_atk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:gravity="end"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_atk"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_atk"
-        tools:text="030" />
+        <TextView
+            android:id="@+id/poke_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toStartOf="@id/content_layout"
+            app:layout_constraintTop_toBottomOf="@id/weight_divider"
+            tools:text="There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger." />
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/poke_stats_progress_atk"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_atk"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_value_atk"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_atk"
-        app:trackCornerRadius="8dp"
-        tools:progress="30" />
 
-    <!-- DEF -->
+        <TextView
+            android:id="@+id/poke_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Base Stats"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/poke_description" />
 
-    <TextView
-        android:id="@+id/poke_stats_desc_def"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:gravity="end"
-        android:text="DEF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_atk" />
+        <View
+            android:id="@+id/poke_stats_divider"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_spd"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_desc_satk"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_hp" />
 
-    <TextView
-        android:id="@+id/poke_stats_value_def"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:gravity="end"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_def"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_def"
-        tools:text="070" />
+        <!-- HP -->
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/poke_stats_progress_def"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_def"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_value_def"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_def"
-        app:trackCornerRadius="8dp"
-        tools:progress="70" />
+        <TextView
+            android:id="@+id/poke_stats_desc_hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:text="HP"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toBottomOf="@id/poke_stats" />
 
-    <!-- SATK -->
+        <TextView
+            android:id="@+id/poke_stats_value_hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_hp"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_hp"
+            tools:text="040" />
 
-    <TextView
-        android:id="@+id/poke_stats_desc_satk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:gravity="end"
-        android:text="SATK"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/content_layout"
-        app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_def" />
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/poke_stats_progress_hp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_hp"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_value_hp"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_hp"
+            app:trackCornerRadius="8dp"
+            tools:progress="40" />
 
-    <TextView
-        android:id="@+id/poke_stats_value_satk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:gravity="end"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_satk"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_satk"
-        tools:text="010" />
+        <!-- ATK -->
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/poke_stats_progress_satk"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_satk"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_value_satk"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_satk"
-        app:trackCornerRadius="8dp"
-        tools:progress="70" />
+        <TextView
+            android:id="@+id/poke_stats_desc_atk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:text="ATK"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_hp" />
 
-    <!-- SDEF -->
+        <TextView
+            android:id="@+id/poke_stats_value_atk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_atk"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_atk"
+            tools:text="030" />
 
-    <TextView
-        android:id="@+id/poke_stats_desc_sdef"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:gravity="end"
-        android:text="SDEF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_satk" />
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/poke_stats_progress_atk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_atk"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_value_atk"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_atk"
+            app:trackCornerRadius="8dp"
+            tools:progress="30" />
 
-    <TextView
-        android:id="@+id/poke_stats_value_sdef"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:gravity="end"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_sdef"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_sdef"
-        tools:text="999" />
+        <!-- DEF -->
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/poke_stats_progress_sdef"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_sdef"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_value_sdef"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_sdef"
-        app:trackCornerRadius="8dp"
-        tools:progress="100" />
+        <TextView
+            android:id="@+id/poke_stats_desc_def"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:text="DEF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_atk" />
 
-    <!-- SPD -->
+        <TextView
+            android:id="@+id/poke_stats_value_def"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_def"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_def"
+            tools:text="070" />
 
-    <TextView
-        android:id="@+id/poke_stats_desc_spd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="end"
-        android:text="SPD"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/content_layout"
-        app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_sdef"
-        app:layout_constraintVertical_bias="0" />
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/poke_stats_progress_def"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_def"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_value_def"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_def"
+            app:trackCornerRadius="8dp"
+            tools:progress="70" />
 
-    <TextView
-        android:id="@+id/poke_stats_value_spd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:gravity="end"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_spd"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_spd"
-        tools:text="018" />
+        <!-- SATK -->
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/poke_stats_progress_spd"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_spd"
-        app:layout_constraintEnd_toEndOf="@id/content_layout"
-        app:layout_constraintStart_toEndOf="@id/poke_stats_value_spd"
-        app:layout_constraintTop_toTopOf="@id/poke_stats_desc_spd"
-        app:trackCornerRadius="8dp"
-        tools:progress="18" />
+        <TextView
+            android:id="@+id/poke_stats_desc_satk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:gravity="end"
+            android:text="SATK"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/content_layout"
+            app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_def" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/poke_stats_value_satk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_satk"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_satk"
+            tools:text="010" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/poke_stats_progress_satk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_satk"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_value_satk"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_satk"
+            app:trackCornerRadius="8dp"
+            tools:progress="70" />
+
+        <!-- SDEF -->
+
+        <TextView
+            android:id="@+id/poke_stats_desc_sdef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:text="SDEF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_satk" />
+
+        <TextView
+            android:id="@+id/poke_stats_value_sdef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_sdef"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_sdef"
+            tools:text="999" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/poke_stats_progress_sdef"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_sdef"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_value_sdef"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_sdef"
+            app:trackCornerRadius="8dp"
+            tools:progress="100" />
+
+        <!-- SPD -->
+
+        <TextView
+            android:id="@+id/poke_stats_desc_spd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="end"
+            android:text="SPD"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/content_layout"
+            app:layout_constraintEnd_toStartOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toBottomOf="@id/poke_stats_desc_sdef"
+            app:layout_constraintVertical_bias="0" />
+
+        <TextView
+            android:id="@+id/poke_stats_value_spd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_spd"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_divider"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_spd"
+            tools:text="018" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/poke_stats_progress_spd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/poke_stats_desc_spd"
+            app:layout_constraintEnd_toEndOf="@id/content_layout"
+            app:layout_constraintStart_toEndOf="@id/poke_stats_value_spd"
+            app:layout_constraintTop_toTopOf="@id/poke_stats_desc_spd"
+            app:trackCornerRadius="8dp"
+            tools:progress="18" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

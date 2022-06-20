@@ -30,10 +30,10 @@ data class PokemonSpritesResponse(
 )
 
 data class PokemonSpritesInnerResponse(
-    @SerializedName("official-artwork") val officialUrl: Pair<String, PokemonOfficialSpriteResponse>
+    @SerializedName("official-artwork") val officialUrl: PokemonOfficialSpriteResponse
 )
 
-data class PokemonOfficialSpriteResponse(@SerializedName("front-default") val url: String)
+data class PokemonOfficialSpriteResponse(@SerializedName("front_default") val url: String)
 
 /**
  * Stats related
@@ -50,7 +50,7 @@ data class PokemonStatsInnerResponse(val name: String)
  */
 data class PokemonTypeResponse(
     @SerializedName("slot") val order: Int,
-    val description: PokemonTypeInnerResponse
+    @SerializedName("type") val description: PokemonTypeInnerResponse
 )
 
 data class PokemonTypeInnerResponse(val name: String)

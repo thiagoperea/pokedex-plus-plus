@@ -1,6 +1,5 @@
 package com.thiagoperea.pokedexplusplus.presentation.details
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,11 +18,11 @@ class DetailsViewModel(
     fun loadMockPokemon() {
         viewModelScope.launch {
 
-            val test = withContext(Dispatchers.IO) {
+            val bulbasaur = withContext(Dispatchers.IO) {
                 repository.loadPokemonWithId(1)
             }
 
-            Log.d("TESTE_THI", test.toString())
+            pokemonDetailsLiveData.postValue(bulbasaur)
         }
 
     }
