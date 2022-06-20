@@ -2,8 +2,8 @@ package com.thiagoperea.pokedexplusplus.presentation.details
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
 import com.thiagoperea.pokedexplusplus.databinding.ActivityDetailsBinding
-import com.thiagoperea.pokedexplusplus.model.PokemonDetails
 import org.koin.android.ext.android.inject
 
 class DetailsActivity : AppCompatActivity() {
