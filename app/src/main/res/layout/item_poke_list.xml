@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="104dp"
-    android:layout_height="112dp"
+    android:layout_height="128dp"
     android:layout_marginTop="8dp">
 
     <View
@@ -46,6 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         app:layout_constraintBottom_toTopOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +59,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:paddingVertical="3dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="13sp"

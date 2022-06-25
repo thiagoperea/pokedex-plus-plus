@@ -65,15 +65,22 @@ object PokemonDetailsMapper {
             .forEach { type ->
                 val pokemonType = when (type.description.name.lowercase(Locale.getDefault())) {
                     "bug" -> PokemonTypes.BUG
+                    "dark" -> PokemonTypes.DARK
+                    "dragon" -> PokemonTypes.DRAGON
                     "electric" -> PokemonTypes.ELECTRIC
+                    "fairy" -> PokemonTypes.FAIRY
+                    "fighting" -> PokemonTypes.FIGHTING
                     "fire" -> PokemonTypes.FIRE
                     "flying" -> PokemonTypes.FLYING
                     "ghost" -> PokemonTypes.GHOST
                     "grass" -> PokemonTypes.GRASS
+                    "ground" -> PokemonTypes.GROUND
+                    "ice" -> PokemonTypes.ICE
                     "normal" -> PokemonTypes.NORMAL
                     "poison" -> PokemonTypes.POISON
                     "psychic" -> PokemonTypes.PSYCHIC
                     "rock" -> PokemonTypes.ROCK
+                    "steel" -> PokemonTypes.STEEL
                     "water" -> PokemonTypes.WATER
                     else -> throw UnsupportedOperationException("TYPE NOT MAPPED: ${type.description}")
                 }

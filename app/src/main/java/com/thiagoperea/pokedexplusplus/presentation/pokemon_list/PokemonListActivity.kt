@@ -68,6 +68,7 @@ class PokemonListActivity : AppCompatActivity() {
         adapter = PokemonListAdapter { poke ->
             val intent = Intent(this, DetailsActivity::class.java)
             intent.putExtra(DetailsActivity.EXTRA_POKE_DETAILS, poke)
+            startActivity(intent)
         }
 
         binding.pokeList.apply {

@@ -30,12 +30,15 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.backButton.setOnClickListener { finish() }
-
+        setupListeners()
         setupObservers()
 
-        val pokeId = intent.getIntExtra(EXTRA_POKE_DETAILS, 50)
-        viewModel.loadMockPokemon(pokeId)
+        val pokeDetails = intent.getParcelableExtra<PokemonDetails>(EXTRA_POKE_DETAILS)
+        loadScreen(pokeDetails)
+    }
+
+    private fun setupListeners() {
+        binding.backButton.setOnClickListener { finish() }
     }
 
     private fun setupObservers() {
@@ -46,6 +49,19 @@ class DetailsActivity : AppCompatActivity() {
             loadStats(details.stats, pokeColor)
             loadTypes(details.types)
         }
+    }
+
+    private fun loadScreen(pokeDetails: PokemonDetails?) {
+        if (pokeDetails == null) {
+            finish()
+            return
+        }
+
+        val pokeColor = ColorHelper.getColorFromType(pokeDetails.types.first())
+
+        loadDetails(pokeDetails, pokeColor)
+        loadStats(pokeDetails.stats, pokeColor)
+        loadTypes(pokeDetails.types)
     }
 
     private fun loadDetails(pokemon: PokemonDetails, @ColorRes pokeColor: Int) {

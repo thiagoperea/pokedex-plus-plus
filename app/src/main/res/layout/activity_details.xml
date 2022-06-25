@@ -41,15 +41,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/poke_name"
-            app:srcCompat="@android:color/holo_orange_light" />
+            tools:srcCompat="@drawable/ic_pokeball_filled" />
 
         <ImageView
             android:id="@+id/back_button"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="?selectableItemBackgroundBorderless"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
+            android:background="?selectableItemBackgroundBorderless"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_back_arrow"
@@ -207,7 +207,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:textAlignment="center"
             android:textColor="@color/dark_gray"
             app:layout_constraintBottom_toBottomOf="@id/icon_weight"
             app:layout_constraintEnd_toEndOf="@id/content_layout"

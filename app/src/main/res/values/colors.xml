@@ -26,4 +26,11 @@
     <color name="medium_gray">#666666</color>
     <color name="dark_gray">#212121</color>
     <color name="bg_gray">#F7F7F7</color>
+    <color name="dark">#75574C</color>
+    <color name="dragon">#7037FF</color>
+    <color name="fairy">#E69EAC</color>
+    <color name="fighting">#C12239</color>
+    <color name="ground">#DEC16B</color>
+    <color name="ice">#9AD6DF</color>
+    <color name="steel">#B7B9D0</color>
 </resources>

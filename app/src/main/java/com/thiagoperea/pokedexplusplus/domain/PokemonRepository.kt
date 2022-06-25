@@ -6,7 +6,7 @@ import com.thiagoperea.pokedexplusplus.data.remote.PokeApi
 class PokemonRepository(private val api: PokeApi) {
 
     private var pokemonIdToLoad = 1
-    private var pokemonCallLimit = 10
+    private var pokemonCallLimit = 30
 
     suspend fun loadPokemonWithId(id: Int): PokemonDetails {
         val rawResponse = api.getPokemonFromId(id)
@@ -17,11 +17,11 @@ class PokemonRepository(private val api: PokeApi) {
     suspend fun loadAllPokemons(): List<PokemonDetails> {
         val response = mutableListOf<PokemonDetails>()
 
-        repeat(pokemonCallLimit) { idx ->
-            pokemonIdToLoad += idx
-
+        repeat(pokemonCallLimit) {
             val pokemon = loadPokemonWithId(pokemonIdToLoad)
             response.add(pokemon)
+
+            pokemonIdToLoad++
         }
 
 
