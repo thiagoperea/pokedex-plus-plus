@@ -14,7 +14,7 @@ class PokemonRepository(private val api: PokeApi) {
         return PokemonDetailsMapper.map(rawResponse)
     }
 
-    suspend fun loadAllPokemons(): List<PokemonDetails> {
+    suspend fun loadPokemons(): List<PokemonDetails> {
         val response = mutableListOf<PokemonDetails>()
 
         repeat(pokemonCallLimit) {
@@ -23,7 +23,6 @@ class PokemonRepository(private val api: PokeApi) {
 
             pokemonIdToLoad++
         }
-
 
         return response
     }

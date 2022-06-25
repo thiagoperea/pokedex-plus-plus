@@ -10,7 +10,8 @@ import kotlinx.coroutines.withContext
 
 class PokemonListViewModel(val repository: PokemonRepository) : ViewModel() {
 
-    val loadingStateLiveData = MutableLiveData<PokemonListState>()
+    val loadStateLiveData = MutableLiveData<PokemonListState>()
+    val loadMoreStateLiveData = MutableLiveData<PokemonListState>()
 
     init {
         repository.resetListCounter()
@@ -18,16 +19,36 @@ class PokemonListViewModel(val repository: PokemonRepository) : ViewModel() {
 
     fun loadPokeList() {
         viewModelScope.launch {
-            loadingStateLiveData.postValue(PokemonListState.Loading)
+            loadStateLiveData.postValue(PokemonListState.Loading)
 
             try {
                 val pokeList = withContext(Dispatchers.IO) {
-                    repository.loadAllPokemons()
+                    repository.loadPokemons()
                 }
 
-                loadingStateLiveData.postValue(PokemonListState.Success(pokeList))
+                loadStateLiveData.postValue(PokemonListState.Success(pokeList))
             } catch (error: Exception) {
-                loadingStateLiveData.postValue(PokemonListState.Error(error.message))
+                loadStateLiveData.postValue(PokemonListState.Error(error.message))
+            }
+        }
+    }
+
+    fun loadMore() {
+        if (loadMoreStateLiveData.value is PokemonListState.Loading) {
+            return
+        }
+
+        viewModelScope.launch {
+            loadMoreStateLiveData.postValue(PokemonListState.Loading)
+
+            try {
+                val moreItems = withContext(Dispatchers.IO) {
+                    repository.loadPokemons()
+                }
+
+                loadMoreStateLiveData.postValue(PokemonListState.Success(moreItems))
+            } catch (error: Exception) {
+                loadMoreStateLiveData.postValue(PokemonListState.Error(error.message))
             }
         }
     }

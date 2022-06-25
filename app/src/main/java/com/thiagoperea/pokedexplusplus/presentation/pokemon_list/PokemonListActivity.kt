@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.thiagoperea.pokedexplusplus.R
 import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
@@ -35,9 +36,17 @@ class PokemonListActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        viewModel.loadingStateLiveData.observe(this) { state ->
+        viewModel.loadStateLiveData.observe(this) { state ->
             when (state) {
                 is PokemonListState.Loading -> showLoading()
+                is PokemonListState.Success -> showResponse(state.result)
+                is PokemonListState.Error -> showError(state.errorMessage)
+            }
+        }
+
+        viewModel.loadMoreStateLiveData.observe(this) { state ->
+            when (state) {
+                is PokemonListState.Loading -> showLoadingMore()
                 is PokemonListState.Success -> showResponse(state.result)
                 is PokemonListState.Error -> showError(state.errorMessage)
             }
@@ -46,11 +55,13 @@ class PokemonListActivity : AppCompatActivity() {
 
     private fun showResponse(result: List<PokemonDetails>) {
         hideLoading()
+        hideLoadingMore()
         adapter.addPokemonList(result)
     }
 
     private fun showError(errorMessage: String?) {
         hideLoading()
+        hideLoadingMore()
         Snackbar.make(binding.root, getString(R.string.error_message, errorMessage), Snackbar.LENGTH_INDEFINITE).show()
     }
 
@@ -59,9 +70,17 @@ class PokemonListActivity : AppCompatActivity() {
         binding.loading.visible()
     }
 
+    private fun showLoadingMore() {
+        binding.loadingBottom.visible()
+    }
+
     private fun hideLoading() {
         binding.loading.gone()
         binding.pokeList.visible()
+    }
+
+    private fun hideLoadingMore() {
+        binding.loadingBottom.gone()
     }
 
     private fun setupList() {
@@ -75,6 +94,17 @@ class PokemonListActivity : AppCompatActivity() {
             setHasFixedSize(true)
             layoutManager = GridLayoutManager(this@PokemonListActivity, 3, GridLayoutManager.VERTICAL, false)
             adapter = this@PokemonListActivity.adapter
+
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    if (!recyclerView.canScrollVertically(1)) {
+                        viewModel.loadMore()
+                    }
+
+                    super.onScrolled(recyclerView, dx, dy)
+                }
+            })
         }
     }
 }
