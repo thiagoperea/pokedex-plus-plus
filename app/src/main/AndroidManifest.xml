@@ -22,13 +22,18 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".presentation.details.DetailsActivity"
+            android:name=".presentation.pokemon_list.PokemonListActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".presentation.details.DetailsActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

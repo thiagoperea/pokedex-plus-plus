@@ -15,11 +15,11 @@ class DetailsViewModel(
 
     val pokemonDetailsLiveData = MutableLiveData<PokemonDetails>()
 
-    fun loadMockPokemon() {
+    fun loadMockPokemon(pokeId: Int) {
         viewModelScope.launch {
 
             val bulbasaur = withContext(Dispatchers.IO) {
-                repository.loadPokemonWithId(6)
+                repository.loadPokemonWithId(pokeId)
             }
 
             pokemonDetailsLiveData.postValue(bulbasaur)

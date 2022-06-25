@@ -17,6 +17,10 @@ import org.koin.android.ext.android.inject
 
 class DetailsActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_POKE_ID = "extra.poke.id"
+    }
+
     private lateinit var binding: ActivityDetailsBinding
     private val viewModel: DetailsViewModel by inject()
 
@@ -26,8 +30,12 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backButton.setOnClickListener { finish() }
+
         setupObservers()
-        viewModel.loadMockPokemon()
+
+        val pokeId = intent.getIntExtra(EXTRA_POKE_ID, 50)
+        viewModel.loadMockPokemon(pokeId)
     }
 
     private fun setupObservers() {
