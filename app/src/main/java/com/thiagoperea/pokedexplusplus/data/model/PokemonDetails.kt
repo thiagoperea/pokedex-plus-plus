@@ -1,5 +1,9 @@
 package com.thiagoperea.pokedexplusplus.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class PokemonDetails(
     val id: Int,
     val name: String,
@@ -12,7 +16,7 @@ data class PokemonDetails(
     val moves: List<String>,
     val description: String,
     val stats: List<PokemonStat>
-)
+) : Parcelable
 
 enum class PokemonTypes {
     BUG,
@@ -28,7 +32,8 @@ enum class PokemonTypes {
     WATER
 }
 
-data class PokemonStat(val stat: PokemonStats, val value: Int)
+@Parcelize
+data class PokemonStat(val stat: PokemonStats, val value: Int) : Parcelable
 
 enum class PokemonStats {
     HP,
