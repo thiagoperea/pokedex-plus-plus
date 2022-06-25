@@ -10,6 +10,7 @@ import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
 import com.thiagoperea.pokedexplusplus.databinding.ItemPokeListBinding
 import com.thiagoperea.pokedexplusplus.presentation.ColorHelper
 import com.thiagoperea.pokedexplusplus.presentation.dpToPx
+import com.thiagoperea.pokedexplusplus.presentation.firstUppercase
 
 class PokemonListAdapter(
     val onPokeClick: (PokemonDetails) -> Unit
@@ -43,7 +44,7 @@ class PokemonListViewHolder(private val binding: ItemPokeListBinding) : Recycler
 
         binding.id.text = "#${pokemon.id.toString().padStart(3, '0')}"
         binding.image.load(pokemon.imageUrl)
-        binding.name.text = pokemon.name
+        binding.name.text = pokemon.name.firstUppercase()
 
         val typeColor = ColorHelper.getColorFromType(pokemon.types.first())
         val pokeColor = ContextCompat.getColor(binding.root.context, typeColor)

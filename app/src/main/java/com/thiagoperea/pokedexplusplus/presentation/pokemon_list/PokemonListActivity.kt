@@ -3,6 +3,7 @@ package com.thiagoperea.pokedexplusplus.presentation.pokemon_list
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -62,7 +63,11 @@ class PokemonListActivity : AppCompatActivity() {
     private fun showError(errorMessage: String?) {
         hideLoading()
         hideLoadingMore()
-        Snackbar.make(binding.root, getString(R.string.error_message, errorMessage), Snackbar.LENGTH_INDEFINITE).show()
+        Snackbar.make(binding.root, getString(R.string.error_message, errorMessage), Snackbar.LENGTH_LONG)
+            .apply {
+                val errorBgColor = ContextCompat.getColor(this@PokemonListActivity, R.color.fighting)
+                this.setBackgroundTint(errorBgColor)
+            }.show()
     }
 
     private fun showLoading() {

@@ -13,6 +13,7 @@ import com.thiagoperea.pokedexplusplus.data.model.PokemonTypes
 import com.thiagoperea.pokedexplusplus.databinding.ActivityDetailsBinding
 import com.thiagoperea.pokedexplusplus.databinding.ViewPokemonTypeBinding
 import com.thiagoperea.pokedexplusplus.presentation.ColorHelper
+import com.thiagoperea.pokedexplusplus.presentation.firstUppercase
 import org.koin.android.ext.android.inject
 
 class DetailsActivity : AppCompatActivity() {
@@ -72,7 +73,7 @@ class DetailsActivity : AppCompatActivity() {
         binding.contentRoot.background = pokeColorAsDrawable
         binding.pokeAbout.setTextColor(pokeColorAsColor)
         binding.pokeStats.setTextColor(pokeColorAsColor)
-        binding.pokeName.text = pokemon.name
+        binding.pokeName.text = pokemon.name.firstUppercase()
         binding.pokeId.text = "#${pokemon.id.toString().padStart(3, '0')}"
         binding.pokeImg.load(pokemon.imageUrl)
         binding.pokeWeight.text = getString(R.string.weight, pokemon.weight)
