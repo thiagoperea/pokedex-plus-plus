@@ -33,7 +33,7 @@ object PokemonDetailsMapper {
             spriteShinyUrl,
             types,
             moves,
-            "I NEED TO USE ANOTHER API :(",
+            "",
             stats
         )
     }

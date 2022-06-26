@@ -18,6 +18,9 @@ interface PokemonDao {
     @Insert
     fun insert(pokemon: PokemonDetails)
 
+    @Query("UPDATE pokemondetails SET description = :desc WHERE id = :pokeId")
+    fun updatePokemonDetails(pokeId: Int, desc: String)
+
     @Delete
     fun delete(pokemon: PokemonDetails)
 }

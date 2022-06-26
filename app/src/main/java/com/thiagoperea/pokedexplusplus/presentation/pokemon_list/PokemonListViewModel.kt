@@ -13,10 +13,6 @@ class PokemonListViewModel(val repository: PokemonRepository) : ViewModel() {
     val loadStateLiveData = MutableLiveData<PokemonListState>()
     val loadMoreStateLiveData = MutableLiveData<PokemonListState>()
 
-    init {
-        repository.resetListCounter()
-    }
-
     fun loadPokeList() {
         viewModelScope.launch {
             loadStateLiveData.postValue(PokemonListState.Loading)

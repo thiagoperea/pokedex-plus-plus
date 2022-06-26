@@ -2,6 +2,7 @@ package com.thiagoperea.pokedexplusplus.presentation.pokemon_list
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -12,6 +13,7 @@ import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
 import com.thiagoperea.pokedexplusplus.databinding.ActivityPokemonListBinding
 import com.thiagoperea.pokedexplusplus.presentation.details.DetailsActivity
 import com.thiagoperea.pokedexplusplus.presentation.gone
+import com.thiagoperea.pokedexplusplus.presentation.setErrorStyle
 import com.thiagoperea.pokedexplusplus.presentation.visible
 import org.koin.android.ext.android.inject
 
@@ -64,10 +66,8 @@ class PokemonListActivity : AppCompatActivity() {
         hideLoading()
         hideLoadingMore()
         Snackbar.make(binding.root, getString(R.string.error_message, errorMessage), Snackbar.LENGTH_LONG)
-            .apply {
-                val errorBgColor = ContextCompat.getColor(this@PokemonListActivity, R.color.fighting)
-                this.setBackgroundTint(errorBgColor)
-            }.show()
+            .setErrorStyle()
+            .show()
     }
 
     private fun showLoading() {

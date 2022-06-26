@@ -5,6 +5,7 @@ import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import coil.load
+import com.google.android.material.snackbar.Snackbar
 import com.thiagoperea.pokedexplusplus.R
 import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
 import com.thiagoperea.pokedexplusplus.data.model.PokemonStat
@@ -12,8 +13,7 @@ import com.thiagoperea.pokedexplusplus.data.model.PokemonStats
 import com.thiagoperea.pokedexplusplus.data.model.PokemonTypes
 import com.thiagoperea.pokedexplusplus.databinding.ActivityDetailsBinding
 import com.thiagoperea.pokedexplusplus.databinding.ViewPokemonTypeBinding
-import com.thiagoperea.pokedexplusplus.presentation.ColorHelper
-import com.thiagoperea.pokedexplusplus.presentation.firstUppercase
+import com.thiagoperea.pokedexplusplus.presentation.*
 import org.koin.android.ext.android.inject
 
 class DetailsActivity : AppCompatActivity() {
@@ -34,8 +34,9 @@ class DetailsActivity : AppCompatActivity() {
         setupListeners()
         setupObservers()
 
-        val pokeDetails = intent.getParcelableExtra<PokemonDetails>(EXTRA_POKE_DETAILS)
-        loadScreen(pokeDetails)
+        intent.getParcelableExtra<PokemonDetails>(EXTRA_POKE_DETAILS)?.let {
+            loadScreen(it)
+        }
     }
 
     private fun setupListeners() {
@@ -43,21 +44,38 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.pokemonDetailsLiveData.observe(this) { details ->
-            val pokeColor = ColorHelper.getColorFromType(details.types.first())
-
-            loadDetails(details, pokeColor)
-            loadStats(details.stats, pokeColor)
-            loadTypes(details.types)
+        viewModel.pokemonDescriptionLiveData.observe(this) { state ->
+            when(state) {
+                is DetailsState.Loading -> showLoadingDescription()
+                is DetailsState.Success -> showDescription(state.details)
+                is DetailsState.Error -> showErrorMessage(state.errorMessage)
+            }
         }
     }
 
-    private fun loadScreen(pokeDetails: PokemonDetails?) {
-        if (pokeDetails == null) {
-            finish()
-            return
-        }
+    private fun showLoadingDescription() {
+        binding.loading.visible()
+        binding.pokeDescription.invisible()
+    }
 
+    private fun hideLoadingDescription() {
+        binding.loading.gone()
+        binding.pokeDescription.visible()
+    }
+
+    private fun showDescription(description: String) {
+        hideLoadingDescription()
+        binding.pokeDescription.text = description
+    }
+
+    private fun showErrorMessage(errorMessage: String?) {
+        hideLoadingDescription()
+        Snackbar.make(binding.root, getString(R.string.error_message, errorMessage), Snackbar.LENGTH_LONG)
+            .setErrorStyle()
+            .show()
+    }
+
+    private fun loadScreen(pokeDetails: PokemonDetails) {
         val pokeColor = ColorHelper.getColorFromType(pokeDetails.types.first())
 
         loadDetails(pokeDetails, pokeColor)
@@ -89,7 +107,12 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         binding.pokeMoves.text = pokeMoves
-        binding.pokeDescription.text = pokemon.description
+
+        if (pokemon.description.isEmpty()) {
+            viewModel.loadDescription(pokemon.id)
+        } else {
+            showDescription(pokemon.description)
+        }
     }
 
     private fun loadStats(stats: List<PokemonStat>, pokeColor: Int) {

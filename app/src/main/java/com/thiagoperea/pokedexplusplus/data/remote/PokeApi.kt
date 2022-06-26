@@ -9,6 +9,6 @@ interface PokeApi {
     @GET("pokemon/{poke_id}")
     suspend fun getPokemonFromId(@Path("poke_id") id: Int): PokemonResponse
 
-    @GET("pokemon")
-    suspend fun getAllPokemons(@Query("limit") count: Int, @Query("offset") startFrom: Int): PokemonListResponse
+    @GET("pokemon-species/{poke_id}")
+    suspend fun getDescription(@Path("poke_id") id: Int): DescriptionResponse
 }

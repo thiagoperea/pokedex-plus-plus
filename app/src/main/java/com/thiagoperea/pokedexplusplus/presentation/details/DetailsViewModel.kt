@@ -3,7 +3,6 @@ package com.thiagoperea.pokedexplusplus.presentation.details
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
 import com.thiagoperea.pokedexplusplus.domain.PokemonRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,17 +12,21 @@ class DetailsViewModel(
     val repository: PokemonRepository
 ) : ViewModel() {
 
-    val pokemonDetailsLiveData = MutableLiveData<PokemonDetails>()
+    val pokemonDescriptionLiveData = MutableLiveData<DetailsState>()
 
-    fun loadMockPokemon(pokeId: Int) {
+    fun loadDescription(pokeId: Int) {
         viewModelScope.launch {
+            pokemonDescriptionLiveData.postValue(DetailsState.Loading)
 
-            val bulbasaur = withContext(Dispatchers.IO) {
-                repository.loadPokemonWithId(pokeId)
+            try {
+                val description = withContext(Dispatchers.IO){
+                    repository.loadPokemonDescription(pokeId)
+                }
+
+                pokemonDescriptionLiveData.postValue(DetailsState.Success(description))
+            } catch (error: Exception){
+                pokemonDescriptionLiveData.postValue(DetailsState.Error(error.message))
             }
-
-            pokemonDetailsLiveData.postValue(bulbasaur)
         }
-
     }
 }

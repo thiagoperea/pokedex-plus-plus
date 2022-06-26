@@ -38,7 +38,13 @@ class PokemonRepository(
         return response
     }
 
-    fun resetListCounter() {
-        pokemonIdToLoad = 1
+    suspend fun loadPokemonDescription(pokeId: Int): String {
+        val rawResponse = api.getDescription(pokeId)
+
+        val description = PokemonDescriptionMapper.map(rawResponse)
+
+        database.updatePokemonDetails(pokeId, description)
+
+        return description
     }
 }

@@ -145,7 +145,7 @@
             android:id="@+id/weight_divider"
             android:layout_width="1dp"
             android:layout_height="56dp"
-            android:layout_marginHorizontal="32dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="16dp"
             android:background="@color/light_gray"
             app:layout_constraintEnd_toStartOf="@id/icon_height"
@@ -193,7 +193,7 @@
             android:id="@+id/height_divider"
             android:layout_width="1dp"
             android:layout_height="56dp"
-            android:layout_marginHorizontal="32dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="16dp"
             android:background="@color/light_gray"
             app:layout_constraintEnd_toStartOf="@id/poke_moves"
@@ -235,12 +235,24 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins"
+            android:textAlignment="center"
             android:textColor="@color/dark_gray"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@id/content_layout"
             app:layout_constraintStart_toStartOf="@id/content_layout"
             app:layout_constraintTop_toBottomOf="@id/weight_divider"
             tools:text="There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger." />
 
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/poke_description"
+            app:layout_constraintEnd_toEndOf="@id/poke_description"
+            app:layout_constraintStart_toStartOf="@id/poke_description"
+            app:layout_constraintTop_toTopOf="@id/poke_description" />
 
         <TextView
             android:id="@+id/poke_stats"
