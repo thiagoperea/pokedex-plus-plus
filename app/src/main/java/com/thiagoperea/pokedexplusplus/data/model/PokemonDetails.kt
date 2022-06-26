@@ -1,21 +1,24 @@
 package com.thiagoperea.pokedexplusplus.data.model
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
+@Entity
 @Parcelize
 data class PokemonDetails(
-    val id: Int,
-    val name: String,
-    val weight: Int,
-    val height: Int,
-    val imageUrl: String,
-    val spriteUrl: String,
-    val spriteShinyUrl: String,
-    val types: List<PokemonTypes>,
-    val moves: List<String>,
-    val description: String,
-    val stats: List<PokemonStat>
+    @PrimaryKey var id: Int,
+    var name: String,
+    var weight: Int,
+    var height: Int,
+    var imageUrl: String,
+    var spriteUrl: String,
+    var spriteShinyUrl: String,
+    var types: List<PokemonTypes>,
+    var moves: List<String>,
+    var description: String,
+    var stats: List<PokemonStat>
 ) : Parcelable
 
 enum class PokemonTypes {
