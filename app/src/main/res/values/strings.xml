@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pokedex++</string>
+    <string name="app_name">PokéGo</string>
     <string name="weight">%d kg</string>
     <string name="height">%d m</string>
     <string name="weight_description">weight</string>

@@ -17,6 +17,7 @@ class PokemonListAdapter(
 ) : RecyclerView.Adapter<PokemonListViewHolder>() {
 
     val dataset = mutableListOf<PokemonDetails>()
+    val originalDataset = mutableListOf<PokemonDetails>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonListViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -32,10 +33,22 @@ class PokemonListAdapter(
 
     fun addPokemonList(list: List<PokemonDetails>) {
         dataset.addAll(list)
+        originalDataset.addAll(list)
     }
+
+    fun filterBy(query: String) {
+        dataset.clear()
+
+        val filtered = originalDataset.filter { it.name.contains(query) }
+        dataset.addAll(filtered)
+        notifyDataSetChanged()
+    }
+
+    fun isFiltering() = dataset.size != originalDataset.size
 }
 
-class PokemonListViewHolder(private val binding: ItemPokeListBinding) : RecyclerView.ViewHolder(binding.root) {
+class PokemonListViewHolder(private val binding: ItemPokeListBinding) :
+    RecyclerView.ViewHolder(binding.root) {
 
     fun bind(pokemon: PokemonDetails, onPokeClick: (PokemonDetails) -> Unit) {
         binding.root.setOnClickListener {

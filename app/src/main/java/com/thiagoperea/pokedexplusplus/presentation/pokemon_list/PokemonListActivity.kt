@@ -2,9 +2,8 @@ package com.thiagoperea.pokedexplusplus.presentation.pokemon_list
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -32,10 +31,17 @@ class PokemonListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //TODO: IME ACTION SEARCH!
+        setupSearch()
         setupList()
         setupViewModel()
 
         viewModel.loadPokeList()
+    }
+
+    private fun setupSearch() {
+        binding.searchBar.doAfterTextChanged { query ->
+            adapter.filterBy(query.toString())
+        }
     }
 
     private fun setupViewModel() {
@@ -76,6 +82,7 @@ class PokemonListActivity : AppCompatActivity() {
     }
 
     private fun showLoadingMore() {
+        binding.pokeList.scrollToPosition(adapter.itemCount - 1)
         binding.loadingBottom.visible()
     }
 
@@ -103,7 +110,7 @@ class PokemonListActivity : AppCompatActivity() {
             addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    if (!recyclerView.canScrollVertically(1)) {
+                    if (!recyclerView.canScrollVertically(1) && !this@PokemonListActivity.adapter.isFiltering()) {
                         viewModel.loadMore()
                     }
 
