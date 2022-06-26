@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
 import com.thiagoperea.pokedexplusplus.databinding.ItemPokeListBinding
+import com.thiagoperea.pokedexplusplus.internal.extension.dpToPx
+import com.thiagoperea.pokedexplusplus.internal.extension.firstUppercase
 import com.thiagoperea.pokedexplusplus.presentation.ColorHelper
-import com.thiagoperea.pokedexplusplus.presentation.dpToPx
-import com.thiagoperea.pokedexplusplus.presentation.firstUppercase
 
 class PokemonListAdapter(
     val onPokeClick: (PokemonDetails) -> Unit

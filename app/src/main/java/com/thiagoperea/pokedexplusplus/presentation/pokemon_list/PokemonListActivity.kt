@@ -10,10 +10,10 @@ import com.google.android.material.snackbar.Snackbar
 import com.thiagoperea.pokedexplusplus.R
 import com.thiagoperea.pokedexplusplus.data.model.PokemonDetails
 import com.thiagoperea.pokedexplusplus.databinding.ActivityPokemonListBinding
+import com.thiagoperea.pokedexplusplus.internal.extension.gone
+import com.thiagoperea.pokedexplusplus.internal.extension.setErrorStyle
+import com.thiagoperea.pokedexplusplus.internal.extension.visible
 import com.thiagoperea.pokedexplusplus.presentation.details.DetailsActivity
-import com.thiagoperea.pokedexplusplus.presentation.gone
-import com.thiagoperea.pokedexplusplus.presentation.setErrorStyle
-import com.thiagoperea.pokedexplusplus.presentation.visible
 import org.koin.android.ext.android.inject
 
 

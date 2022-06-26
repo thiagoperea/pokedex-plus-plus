@@ -13,7 +13,8 @@ import com.thiagoperea.pokedexplusplus.data.model.PokemonStats
 import com.thiagoperea.pokedexplusplus.data.model.PokemonTypes
 import com.thiagoperea.pokedexplusplus.databinding.ActivityDetailsBinding
 import com.thiagoperea.pokedexplusplus.databinding.ViewPokemonTypeBinding
-import com.thiagoperea.pokedexplusplus.presentation.*
+import com.thiagoperea.pokedexplusplus.internal.extension.*
+import com.thiagoperea.pokedexplusplus.presentation.ColorHelper
 import org.koin.android.ext.android.inject
 
 class DetailsActivity : AppCompatActivity() {

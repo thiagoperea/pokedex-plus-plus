@@ -1,4 +1,4 @@
-package com.thiagoperea.pokedexplusplus.presentation
+package com.thiagoperea.pokedexplusplus.internal.extension
 
 import android.view.View
 
