@@ -19,7 +19,7 @@ class PokemonListViewModel(val repository: PokemonRepository) : ViewModel() {
 
             try {
                 val pokeList = withContext(Dispatchers.IO) {
-                    repository.loadPokemons()
+                    repository.loadInitialData()
                 }
 
                 loadStateLiveData.postValue(PokemonListState.Success(pokeList))
@@ -39,7 +39,7 @@ class PokemonListViewModel(val repository: PokemonRepository) : ViewModel() {
 
             try {
                 val moreItems = withContext(Dispatchers.IO) {
-                    repository.loadPokemons()
+                    repository.loadMore()
                 }
 
                 loadMoreStateLiveData.postValue(PokemonListState.Success(moreItems))

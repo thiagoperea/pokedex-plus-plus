@@ -39,7 +39,7 @@ class PokemonListAdapter(
     fun filterBy(query: String) {
         dataset.clear()
 
-        val filtered = originalDataset.filter { it.name.contains(query) }
+        val filtered = originalDataset.filter { it.name.contains(query, true) }
         dataset.addAll(filtered)
         notifyDataSetChanged()
     }

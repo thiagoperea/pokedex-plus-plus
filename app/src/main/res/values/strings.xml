@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PokéGo</string>
+    <string name="app_name">Pokédex++</string>
     <string name="weight">%d kg</string>
     <string name="height">%d m</string>
     <string name="weight_description">weight</string>
@@ -14,5 +14,5 @@
     <string name="sdef">SDEF</string>
     <string name="spd">SPD</string>
     <string name="error_message">Erro: %s</string>
-    <string name="loading">Carregando...</string>
+    <string name="loading">Carregando…</string>
 </resources>
