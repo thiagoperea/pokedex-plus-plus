@@ -38,7 +38,7 @@ object PokemonDetailsMapper {
         )
     }
 
-    private fun getStatsList(stats: List<PokemonStatsResponse>): List<PokemonStat> {
+    fun getStatsList(stats: List<PokemonStatsResponse>): List<PokemonStat> {
         val pokemonStats = mutableListOf<PokemonStat>()
 
         stats.forEach {
@@ -58,7 +58,7 @@ object PokemonDetailsMapper {
         return pokemonStats
     }
 
-    private fun getTypesList(types: List<PokemonTypeResponse>): List<PokemonTypes> {
+    fun getTypesList(types: List<PokemonTypeResponse>): List<PokemonTypes> {
         val pokemonTypes = mutableListOf<PokemonTypes>()
 
         types.sortedBy { it.order }
